@@ -8,7 +8,10 @@ Date: Nov 28, 2024
 from model import ListPriorityQueue, Priority, PrintJob
 
 class PrintQueueView(object):
-    pass
+    """the view class for the prioritized print queue application"""
+    
+    def __init__(self, model):
+        self.model = model
 
 def run(self):
     """Menu-driven command loop for the app."""
