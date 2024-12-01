@@ -17,64 +17,79 @@ class PrintModel(ListQueue):
         contents of sourceCollection, if it’s present."""
         ListQueue.__init__(self, sourceCollection)
 
-    def add(self, newJob):
+    def add(self, printJob):
         """Inserts newJob after items of greater or equal
-        priority or ahead of items of lesser priority.
+        priority or ahead of items of lesser priority
         A has greater priority than B if A < B."""
-        #TODO first item appended to list
-        #TODO compare new element w/ parent, swap if rank/priority # < than parents
-        #TODO print list of all print jobs (
-        #
+        # TODO first item appended to list
+        # TODO compare new element w/ parent, swap if rank/priority # < than parents
+        # TODO
         pass
 
-
-"""Represents 3 possible print job priority levels
-   ('low', 'high', 'immediate')"""
-class Priority(object):
-    """ Represents the print jobs priority"""
-
-    def __init__(self, rank):
-        self.rank = rank
-
-    def __ge__(self, other):
-        """Used for comparison (>=)"""
+    def parent(self, printItem):
         pass
 
-    def __lt__(self, other):
-        """Returns True if self's priority < other's priority,
-        or False otherwise."""
+    def leftChild(self, printItem):
         pass
 
-    def getPriority(self):
-        """returns string representation of the priority"""
+    def rightChild(self, printItem):
         pass
 
+    def getMin(self):
+        pass
+
+    def moveDown(self, printItem):
+        pass
+
+    def moveUp(self, printItem):
+        pass
+
+    def updatePriority(self, printItem, newPriority):
+        pass
+
+    def insert(self, printJob):
+        pass
+
+    def remove(self, printItem):
+        pass
+    def swap(self, itemI, itemJ):
+        pass
 
 
 """Represents and maintains print job priority level"""
 class PrintJob(object):
     """ Represents the print jobs priority"""
 
-    def __init__(self, filename, priority):
-        extension = filename[len(filename) - 4:]
-        if (extension != ".pdf") or (extension != ".doc") or (extension != ".txt"):
+    def __init__(self, filename, rank, pages):
+
+        #Check filename is valid
+        file = filename.split(".",2)
+        name = file[0]
+        extension = file[1]
+
+        invalid = r'[<>:/."\|?*]'
+        if any(char in name for char in invalid):
+            raise Exception("File name contains invalid character")
+        elif (extension != "pdf") and (extension != "doc") and (extension != "txt"):
             raise Exception("Incorrect file extension")
         else:
-            self.filename = filename
-        self.priority = priority
+            self.filename = name + '.' + extension
+        self.rank = rank
+        self.pages = pages
+        self.priority = rank * pages
+
 
     def __ge__(self, other):
         """Used for comparison (>=)"""
-        pass
+        return self.priority >= other.priority
+
 
     def __lt__(self, other):
         """Returns True if self's priority < other's priority,
         or False otherwise."""
-        pass
+        return self.priority < other.priority
 
-    def __str__(self):
-        """returns string representation of the rank (Priority)"""
-        pass
+
 
 
 
