@@ -5,7 +5,7 @@ Authors: Team1 (Samantha Gephart)
 Date: Nov 28, 2024
 """
 
-from model import PrintModel, Priority, PrintJob
+from model import PrintModel, PrintJob
 
 class PrintQueueView(object):
     """the view class for the prioritized print queue application"""
@@ -14,8 +14,7 @@ class PrintQueueView(object):
         self.model = model
 
     def run(self):
-        """Menu-driven command loop for the app."""
-        """
+        """Menu-driven command loop for the app.
         Main Menu
         1 Send file to print queue
         2 Print next file
@@ -32,10 +31,10 @@ class PrintQueueView(object):
         Raises exception if there are no files in PrintModel
         """
         #TODO: raise exception if there are no files in the PrintModel (Priority Queue)
-        #TODO: print the highest priority printJob with extractMin method (from PrintModel)
-        # (extractMin removes the highest priority, restructures queue accordingly, and
+        #TODO: print the highest priority printJob with getMin method (from PrintModel)
+        # (getMin removes the highest priority, restructures queue accordingly, and
         # returns printJob removed)
-        # NOTE: print job has a getName method that returns the file name
+
         pass
 
     def printNow(self, printJob):
@@ -68,11 +67,11 @@ class PrintQueueView(object):
         #TODO: Error handling (raise error if filename already is in print queue, wrong extension, invalid char (e.g. ' ')
         #TODO: get the Priority (If 0 (print immediately) do not construct or schedule)
         #TODO: Construct and add printJob to PrintModel
+        pass
 
     def getPriority(self):
-        """Obtains priority info"""
+        """Obtains priority info
 
-        """
             Send to queue
             0  Print immediately
             1  Add to next up
@@ -85,8 +84,7 @@ class PrintQueueView(object):
         """
         # TODO: Ask user if file should be added to queue, if it's higher priority, or printed immediately
         # TODO: Prompt user to enter page count of a given file from selection
-        # number = urgency * pages
-        # return Priority(number)
+        pass
 
     def getCommand(self, high, menu):
         """
@@ -106,4 +104,4 @@ def main():
     view.run()
 
 if __name__ == "__main__":
-    main
+    main()
