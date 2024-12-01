@@ -17,6 +17,30 @@ class PrintModel(ListQueue):
         contents of sourceCollection, if it’s present."""
         ListQueue.__init__(self, sourceCollection)
 
+    def isEmpty(self):
+        "Returns true if tree is empty and false otherwise"
+        pass
+    def __len__(self):
+        """Returns number of items in tree (same as len(tree))"""
+        pass
+    def __str__(self):
+        """Returns a string showing shape of tree when printed !"""
+        pass
+    def __iter__(self):
+        """Performs pre-order-traversal on tree"""
+        pass
+    def __contains__(self):
+        """Returns a True if item in tree, false otherwise"""
+        pass
+    def __add__(self, other):
+        """Returns new tree containing items in previous tree and the new item """
+        pass
+    def __eq__(self, other):
+        """Returns true if tree equals other or false otherwise"""
+        pass
+
+
+    #TODO check if filename in list already
     def add(self, printJob):
         """Inserts newJob after items of greater or equal
         priority or ahead of items of lesser priority
@@ -26,6 +50,15 @@ class PrintModel(ListQueue):
         # TODO
         pass
 
+    #TODO: add print specific file by name?
+    def remove(self, printItem):
+        """Removes item from tree if item is in tree"""
+        pass
+    #TODO:implement?
+    def find(self, printItem):
+        """Returns matched item if in tree or None otherwise"""
+        #TODO recursive inorder search?
+        pass
     def parent(self, printItem):
         pass
 
@@ -50,8 +83,6 @@ class PrintModel(ListQueue):
     def insert(self, printJob):
         pass
 
-    def remove(self, printItem):
-        pass
     def swap(self, itemI, itemJ):
         pass
 
