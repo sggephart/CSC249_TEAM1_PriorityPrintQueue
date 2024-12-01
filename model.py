@@ -4,11 +4,11 @@ Purpose: Contains PrintModel, Priority, and PrintJob classes
 Authors: Team1 (Samantha Gephart)
 Date: Nov 28, 2024
 """
-
+#TODO switch to array implementation
 from listqueue import ListQueue
 
 """Maintains a priority queue of print jobs"""
-class ListPriorityQueue(ListQueue):
+class PrintModel(ListQueue):
     """A list-based priority queue implementation (inherits from
     ListQueue.py)"""
 
@@ -21,7 +21,12 @@ class ListPriorityQueue(ListQueue):
         """Inserts newJob after items of greater or equal
         priority or ahead of items of lesser priority.
         A has greater priority than B if A < B."""
+        #TODO first item appended to list
+        #TODO compare new element w/ parent, swap if rank/priority # < than parents
+        #TODO print list of all print jobs (
+        #
         pass
+
 
 """Represents 3 possible print job priority levels
    ('low', 'high', 'immediate')"""
@@ -40,7 +45,7 @@ class Priority(object):
         or False otherwise."""
         pass
 
-    def __str__(self):
+    def getPriority(self):
         """returns string representation of the priority"""
         pass
 
@@ -50,10 +55,13 @@ class Priority(object):
 class PrintJob(object):
     """ Represents the print jobs priority"""
 
-    def __init__(self, filename, priority='low', pages='1'):
-        self.filename = filename
+    def __init__(self, filename, priority):
+        extension = filename[len(filename) - 4:]
+        if (extension != ".pdf") or (extension != ".doc") or (extension != ".txt"):
+            raise Exception("Incorrect file extension")
+        else:
+            self.filename = filename
         self.priority = priority
-        self.pages = pages
 
     def __ge__(self, other):
         """Used for comparison (>=)"""
@@ -68,14 +76,5 @@ class PrintJob(object):
         """returns string representation of the rank (Priority)"""
         pass
 
-    def getName(self):
-        """returns file name"""
-        pass
 
-    def getPriority(self):
-        """returns the priority level"""
-        pass
 
-    def getPages(self):
-        "returns number of pages"
-        pass
