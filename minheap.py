@@ -73,7 +73,6 @@ class MinHeap(object):
 
     def add(self,item):
         """Inserts item into proper place in heap"""
-        #self.size += 1
         self.heap.append(item) #inserts item at the bottom of the heap
         curPos = len(self.heap) - 1
         while curPos > 0:
@@ -107,6 +106,8 @@ class MinHeap(object):
                 break
             if rightChild > lastIndex:      # If there is no child at the right child index
                 maxChild = leftChild        # maxChild is the left child
+                maxItem = self.heap[maxChild]
+                break
             else:
                 leftItem = self.heap[leftChild]     #Item set to object at the leftChild index of heap
                 rightItem = self.heap[rightChild]   #Item set to object at the rightChild index of heap
@@ -125,5 +126,3 @@ class MinHeap(object):
                 self.heap[maxChild] = bottomItem            #previous location of moved child replaced with bottomItem
                 curPos = maxChild                           # current position is index of previous index of shifted child
         return topItem
-
-

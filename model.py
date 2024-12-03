@@ -15,8 +15,41 @@ class PrintModel(MinHeap):
         """Sets the initial state of self, which includes the
         contents of sourceCollection, if it’s present."""
         MinHeap.__init__(self, sourceCollection)
+        if sourceCollection:
+            for item in sourceCollection:
+                self.add(item)
+
+    def __str__(self):
+        copyQueue = PrintModel()
+        printQueue = ""
+        for item in self:
+            copyQueue.add(item)
+        while not copyQueue.isEmpty():
+            copyPop = copyQueue.pop()
+            printQueue += str(copyPop) + "\n"
+        return printQueue
 
 
+def main():
+    h1 = MinHeap()
+    h1.add(3)
+    h1.add(8)
+    h1.add(6)
+    h1.add(4)
+    h1.add(3)
+    print(h1)
+    p1 = PrintModel()
+    p1.add(3)
+    p1.add(8)
+    p1.add(6)
+    p1.add(4)
+    p1.add(3)
+    print(p1)
+
+
+
+if __name__ == "__main__":
+    main()
 
 """Represents and maintains print job priority level"""
 class PrintJob(object):
