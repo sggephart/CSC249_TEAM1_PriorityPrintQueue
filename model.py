@@ -8,7 +8,7 @@ Date: Nov 28, 2024
 """
 Class: PrintJob
 Author: Samantha Gephart
-
+Purpose: Maintains a priority queue using custom min-heap data structure 
 """
 class PrintJob(object):
     """ Represents the print jobs and their respective priorities"""

@@ -1,7 +1,7 @@
 """
 Module name: printqueueview.py
 Purpose: View for print queue prioritized list
-Authors: Team1 - Samantha Gephart
+Authors: Team1 Samantha Gephart, Claudia Dorin, Ethan Bevier, Rachel Mizer
 Date: Nov 28, 2024
 """
 import sys
